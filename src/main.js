@@ -65,7 +65,7 @@ function drawScene(gl, shaderProgram) {
 }
 
 function main() {
-    const canvas = document.getElementById("glCanvas");
+    const canvas = document.getElementById("webgl-canvas");
     const gl = initWebGL(canvas);
     const shaderProgram = initShaders(gl);
     drawScene(gl, shaderProgram);
