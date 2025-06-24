@@ -1,16 +1,16 @@
 # Description:
 This is a personal learning project where I explore WebGL (Web Graphics Library) to understand 3D rendering, shaders, and interactive graphics in the browser. The goal is to experiment with core WebGL concepts, such as:
-Rendering 3D objects (using vertices, indices, and buffers)
-GLSL shaders (vertex & fragment shaders for custom effects)
-Transformations & animations (matrices, rotations, scaling)
-Lighting & textures (Phong shading, image textures)
-User interaction (mouse/keyboard controls for 3D scenes)
-This project serves as a hands-on way to learn computer graphics fundamentals while building small demos and visual experiments.
+Rendering 3D objects (using vertices, indices, and buffers)  
+GLSL shaders (vertex & fragment shaders for custom effects)  
+Transformations & animations (matrices, rotations, scaling)  
+Lighting & textures (Phong shading, image textures)  
+User interaction (mouse/keyboard controls for 3D scenes)  
+This project serves as a hands-on way to learn computer graphics fundamentals while building small demos and visual experiments.  
 
 ## Possible Extensions (Future Work):
-Three.js integration (for higher-level 3D rendering)
-Physics simulations (e.g., collision detection)
-WebGPU comparison (performance vs. WebGL)
+Three.js integration (for higher-level 3D rendering)  
+Physics simulations (e.g., collision detection)  
+WebGPU comparison (performance vs. WebGL)  
 
 ## Tech Stack:
 WebGL 1.0/2.0 (raw API)
