@@ -1,33 +1,37 @@
-# Description:
-This is a personal learning project where I explore WebGL (Web Graphics Library) to understand 3D rendering, shaders, and interactive graphics in the browser. The goal is to experiment with core WebGL concepts, such as:
-Rendering 3D objects (using vertices, indices, and buffers)  
-GLSL shaders (vertex & fragment shaders for custom effects)  
-Transformations & animations (matrices, rotations, scaling)  
-Lighting & textures (Phong shading, image textures)  
-User interaction (mouse/keyboard controls for 3D scenes)  
-This project serves as a hands-on way to learn computer graphics fundamentals while building small demos and visual experiments.  
+# WebGL Project
 
-## Possible Extensions (Future Work):
-Three.js integration (for higher-level 3D rendering)  
-Physics simulations (e.g., collision detection)  
-WebGPU comparison (performance vs. WebGL)  
+This project is a simple WebGL application that demonstrates the basics of rendering graphics using WebGL.
 
-## Tech Stack:
-WebGL 1.0/2.0 (raw API)
-JavaScript/TypeScript
-GLSL (for shaders)
-HTML5 Canvas
-Would love feedback from fellow graphics enthusiasts! 
+## Project Structure
 
-# WebGL Learning Experiments  
-A personal project to explore **3D graphics programming** using WebGL.  
+```
+WebGL
+├── src
+│   ├── index.html       # Main HTML file that sets up the WebGL context
+│   └── main.js          # Main JavaScript file for WebGL rendering logic
+├── LICENSE              # License information for the project
+└── README.md            # Documentation for the project
+```
 
-## Features  
-✔️ Basic 3D rendering with buffers & shaders  
-✔️ Interactive camera controls  
-✔️ Lighting & texture mapping  
+## Getting Started
 
-## How to Run  
-1. Clone the repo  
-2. Open `index.html` in a browser  
-3. Explore the demos!  
+To run this project, follow these steps:
+
+1. **Clone the repository** (if applicable):
+   ```
+   git clone <repository-url>
+   cd WebGL
+   ```
+
+2. **Open the `index.html` file** in a web browser. This file will load the `main.js` script and initialize the WebGL context.
+
+3. **Ensure your browser supports WebGL**. Most modern browsers do, but you can check your browser's compatibility if you encounter issues.
+
+## Usage
+
+- The `main.js` file contains the logic for initializing the WebGL context, setting up the rendering loop, and drawing graphics.
+- You can modify the `main.js` file to experiment with different rendering techniques and graphics.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
