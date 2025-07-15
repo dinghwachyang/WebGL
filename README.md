@@ -37,7 +37,7 @@ To run this project, follow these steps:
 
 Browserify打包
 1. 安装 npm install -g browserify
-2. 生成 browserify src/main.js -o dist/bundle.js
+2. 生成 browserify src/main.js -o src/dist/bundle.js
 3. 配置 <script src="dist/bundle.js"></script>
 
 ## License
