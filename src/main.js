@@ -1,5 +1,7 @@
 // main.js file for initializing WebGL and rendering graphics
 
+import ShaderLoader from './experiment/ShaderLoader.js';
+
 function initWebGL(canvas) {
     let gl = null;
     try {
@@ -10,33 +12,17 @@ function initWebGL(canvas) {
     return gl;
 }
 
-function initShaders(gl) {
-    const vertexShaderSource = `
-        attribute vec4 aVertexPosition;
-        void main(void) {
-            gl_Position = aVertexPosition;
-        }
-    `;
+async function initShaders(gl) {
+    // 支持异步加载 vertex 和 fragment shader 文件
+    const shaderSources = await ShaderLoader.loadShaders({
+        vertex: 'shaders/vertex/VertexExperiment.shader',
+        fragment: 'shaders/fragment/FragmentExperiment.shader',
+    });
 
-    const fragmentShaderSource = `
-        void main(void) {
-            gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0); // White color
-        }
-    `;
-
-    const vertexShader = gl.createShader(gl.VERTEX_SHADER);
-    gl.shaderSource(vertexShader, vertexShaderSource);
-    gl.compileShader(vertexShader);
-
-    const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-    gl.shaderSource(fragmentShader, fragmentShaderSource);
-    gl.compileShader(fragmentShader);
-
-    const shaderProgram = gl.createProgram();
-    gl.attachShader(shaderProgram, vertexShader);
-    gl.attachShader(shaderProgram, fragmentShader);
-    gl.linkProgram(shaderProgram);
-
+    // 使用 ShaderLoader 封装的编译和链接方法
+    const vertexShader = ShaderLoader.createShader(gl, gl.VERTEX_SHADER, shaderSources.vertex);
+    const fragmentShader = ShaderLoader.createShader(gl, gl.FRAGMENT_SHADER, shaderSources.fragment);
+    const shaderProgram = ShaderLoader.createProgram(gl, vertexShader, fragmentShader);
     return shaderProgram;
 }
 
@@ -64,10 +50,10 @@ function drawScene(gl, shaderProgram) {
     gl.drawArrays(gl.TRIANGLES, 0, 3);
 }
 
-function main() {
+async function main() {
     const canvas = document.getElementById("webgl-canvas");
     const gl = initWebGL(canvas);
-    const shaderProgram = initShaders(gl);
+    const shaderProgram = await initShaders(gl);
     drawScene(gl, shaderProgram);
 }
 

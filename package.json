@@ -1,0 +1,23 @@
+{
+  "name": "webgl",
+  "version": "1.0.0",
+  "description": "This project is a simple WebGL application that demonstrates the basics of rendering graphics using WebGL.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinghwachyang/WebGL.git"
+  },
+  "keywords": [],
+  "author": "HwaChyang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dinghwachyang/WebGL/issues"
+  },
+  "homepage": "https://github.com/dinghwachyang/WebGL#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
