@@ -27,27 +27,38 @@ async function initShaders(gl) {
 }
 
 function drawScene(gl, shaderProgram) {
+    //gl.clearColor(1.0, 1.0, 1.0, 1.0); // White background
     gl.clearColor(0.0, 0.0, 0.0, 1.0); // Black background
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     gl.useProgram(shaderProgram);
 
-    // Define a simple triangle
+    // WebGL 的顶点坐标范围是 [-1, 1]，即左下角是 (-1, -1)，右上角是 (1, 1)
+    // 定义一个简单的矩形， -0.5 和 0.5，表示在整个画布的中心区域，不是像素坐标，而是相对画布的比例坐标
     const vertices = new Float32Array([
-        0.0,  0.5,
-       -0.5, -0.5,
-        0.5, -0.5,
+        -0.5,  0.5,  // 左上
+        -0.5, -0.5,  // 左下
+         0.5, -0.5,  // 右下
+         0.5,  0.5   // 右上
     ]);
 
+    // 创建一个缓冲区对象，并绑定到 ARRAY_BUFFER 目标
     const vertexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
 
-    const position = gl.getAttribLocation(shaderProgram, "aVertexPosition");
-    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-    gl.enableVertexAttribArray(position);
+    // 获取顶点着色器中的 aVertexPosition 变量的存储位置   
+    const vertexPos = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+    // 将缓冲区对象中的数据分配给 vertexPos 变量，告诉WebGL如何从缓冲区中获取数据
+    gl.vertexAttribPointer(vertexPos, 2, gl.FLOAT, false, 0, 0);
+    // 启用顶点着色器中的 aVertexPosition 变量,相当于就是把顶点数据给VertexShader的aVertexPosition变量
+    gl.enableVertexAttribArray(vertexPos);
 
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    // 绘制类型， 从第几个顶点开始， 用几个顶点
+    //gl.drawArrays(gl.TRIANGLES, 0, 3);
+    // 绘制3个像素大小为20的点
+    //gl.drawArrays(gl.POINTS, 0, 3);
+    gl.drawArrays(gl.LINE_LOOP, 0, 4);
 }
 
 async function main() {
