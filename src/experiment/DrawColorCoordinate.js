@@ -42,6 +42,7 @@ class DrawColorCoordinate extends DrawBase {
 
         const aColor = gl.getAttribLocation(this.shaderProgram, 'aColor');
         gl.vertexAttribPointer(aColor, 3, gl.FLOAT, false, FSIZE * 5, FSIZE * 2);
+        // 启用aColor属性
         gl.enableVertexAttribArray(aColor);
 
         gl.drawArrays(gl.TRIANGLES, 0, 3);
